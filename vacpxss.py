@@ -85,7 +85,7 @@ if args.f and args.o:
             urlFull = urllib.parse.urlunparse(urlparsed._replace(query=new_query))
                 
             headers = {'User-Agent':"Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2224.3 Safari/537.36"}
-            r = requests.get(urlFull, headers=headers, timeout=5)
+            r = requests.get(urlFull, headers=headers)
         
             if payload in r.text:
                 print(f"{rd}[ XSS FOUND ] {urlFull}")
