@@ -93,7 +93,7 @@ if args.f and args.o:
                 payloadSuccess.append(urlFull)
             else:
                 pass
-        print(f"{g}\nScan Success. XSS Found: {len(payloadSuccess)}")
-        with open(args.o, 'w') as file:
+   print(f"{g}\nScan Success. XSS Found: {len(payloadSuccess)}")
+   with open(args.o, 'w') as file:
             for url in payloadSuccess:
-                file.write(url)
+                        file.write(url)
