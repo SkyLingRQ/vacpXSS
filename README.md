@@ -1,6 +1,6 @@
 ![Captura de vacpXSS](images/img.jpeg)
 
-# 🛠️ Nombre de tu herramienta
+# 🛠️ vacpXSS
 
 vacpXSS toma como entrada una lista de URLs (o endpoints) y las analiza inyectando múltiples payloads de XSS. Luego verifica si alguno de estos payloads se refleja directamente en la respuesta HTML sin ser filtrado o escapado, lo cual es un fuerte indicio de una vulnerabilidad XSS reflejada.
 La herramienta puede ser utilizada tanto para entornos de testing como para escaneos rápidos sobre múltiples dominios objetivos.
