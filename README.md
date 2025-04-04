@@ -1,21 +1,23 @@
+![Captura de vacpXSS](images/img1.png)
+
 # 🛠️ Nombre de tu herramienta
 
-Descripción breve de qué hace tu herramienta y por qué es útil.
-
----
-
-## 🚀 Características
-
-- ✅ Característica 1
-- ✅ Característica 2
-- ✅ Fácil de usar
-- ✅ Totalmente en Python (o el lenguaje que uses)
+vacpXSS toma como entrada una lista de URLs (o endpoints) y las analiza inyectando múltiples payloads de XSS. Luego verifica si alguno de estos payloads se refleja directamente en la respuesta HTML sin ser filtrado o escapado, lo cual es un fuerte indicio de una vulnerabilidad XSS reflejada.
+La herramienta puede ser utilizada tanto para entornos de testing como para escaneos rápidos sobre múltiples dominios objetivos.
 
 ---
 
 ## 📦 Instalación
 
 ```bash
-git clone https://github.com/tu-usuario/tu-herramienta.git
-cd tu-herramienta
-pip install -r requirements.txt
+git clone https://github.com/SkyLingRQ/vacpXSS
+cd vacpXSS
+python3 -m pip install -r requirements.txt
+
+---
+
+## 🚀 Uso
+
+```bash
+python3 vacpxss.py -f archivo_con_los_endpoints.txt -o nombre_del_archivo_a_guardar.txt
+
