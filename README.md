@@ -1,4 +1,4 @@
-![Captura de vacpXSS](images/img1.png)
+![Captura de vacpXSS](images/img.png)
 
 # 🛠️ Nombre de tu herramienta
 
