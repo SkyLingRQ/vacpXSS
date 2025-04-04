@@ -1,4 +1,4 @@
-![Captura de vacpXSS](images/img.png)
+![Captura de vacpXSS](images/img.jpeg)
 
 # 🛠️ Nombre de tu herramienta
 
@@ -13,6 +13,7 @@ La herramienta puede ser utilizada tanto para entornos de testing como para esca
 git clone https://github.com/SkyLingRQ/vacpXSS
 cd vacpXSS
 python3 -m pip install -r requirements.txt
+```
 
 ---
 
@@ -20,4 +21,4 @@ python3 -m pip install -r requirements.txt
 
 ```bash
 python3 vacpxss.py -f archivo_con_los_endpoints.txt -o nombre_del_archivo_a_guardar.txt
-
+```
