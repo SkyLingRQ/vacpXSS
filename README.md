@@ -7,18 +7,26 @@ La herramienta puede ser utilizada tanto para entornos de testing como para esca
 
 ---
 
-## 📦 Instalación
+# 📦 Instalación
 
 ```bash
-git clone https://github.com/SkyLingRQ/vacpXSS
-cd vacpXSS
-python3 -m pip install -r requirements.txt
+go install https://github.com/SkyLingRQ/vacpXSS/vacpxss@latest
+sudo mv go/bin /usr/bin
+./vacpxss -h
 ```
 
 ---
 
-## 🚀 Uso
+# 🚀 Uso
 
 ```bash
-python3 vacpxss.py -f archivo_con_los_endpoints.txt -o nombre_del_archivo_a_guardar.txt
+Usage of ./vacpxss:
+  -file string
+    	Ruta del archivo con URLS. (default "urls.txt")
+  -sem int
+    	Implementar semaforo personalizado. (default 50)
+```
+## Linux Terminal
+```bash
+./vacpxss -file nombre_archivo.txt -sem Número de concurrencias simultáneas (slots de goroutines)
 ```
