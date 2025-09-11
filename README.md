@@ -10,7 +10,7 @@ La herramienta puede ser utilizada tanto para entornos de testing como para esca
 # 📦 Instalación
 
 ```bash
-go install github.com/SkyLingRQ/vacpXSS/vacpxss@latest
+go install github.com/SkyLingRQ/vacpXSS@latest
 sudo mv go/bin /usr/bin
 ./vacpxss -h
 ```
