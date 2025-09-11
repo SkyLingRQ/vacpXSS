@@ -1,3 +1,3 @@
-module github.com/SkyLingRQ/vacpXSS
+module github.com/SkyLingRQ/vacpXSS/vacpxss
 
 go 1.21
