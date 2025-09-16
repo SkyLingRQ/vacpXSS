@@ -12,7 +12,7 @@ La herramienta puede ser utilizada tanto para entornos de testing como para esca
 ```bash
 go install github.com/SkyLingRQ/vacpXSS@latest
 sudo mv go/bin /usr/bin
-./vacpxss -h
+vacpXSS -h
 ```
 
 ---
@@ -28,5 +28,5 @@ Usage of ./vacpxss:
 ```
 ## Linux Terminal
 ```bash
-./vacpxss -file nombre_archivo.txt -sem Número de concurrencias simultáneas (slots de goroutines)
+vacpXSS -file nombre_archivo.txt -sem Número de concurrencias simultáneas (slots de goroutines)
 ```
