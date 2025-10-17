@@ -11,7 +11,7 @@ La herramienta puede ser utilizada tanto para entornos de testing como para esca
 
 ```bash
 go install github.com/SkyLingRQ/vacpXSS@latest
-sudo mv go/bin /usr/bin
+sudo mv go/bin/vacpXSS /usr/bin
 vacpXSS -h
 ```
 
