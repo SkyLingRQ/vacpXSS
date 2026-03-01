@@ -39,7 +39,7 @@ func xsScan(url string, payload string, wg *sync.WaitGroup, sem chan struct{}, u
 		return
 	}
 	if strings.Contains(string(HTMLContent), payload) {
-		fmt.Println("\033[31m[ POSSIBLE VULNERABLE ] " + url + "\033[0m")
+		fmt.Println("\033[31m[ POSSIBLE XSS ] " + url + "\033[0m")
 		*x = *x + 1
 	}
 
@@ -412,7 +412,7 @@ func main() {
 
 	content, err := os.Open(*file)
 	if err != nil {
-		fmt.Println("[ ERROR ] Failed reading file " + *file + ".")
+		fmt.Println("[ ERROR ] Error Reading File " + *file + ".")
 		return
 	}
 	bufioScanner := bufio.NewScanner(content)
